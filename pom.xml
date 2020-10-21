@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.dwarveswork</groupId>
+    <artifactId>java-bom</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>java-common</artifactId>
+  <packaging>pom</packaging>
+  <description>dwarveswork java common library.</description>
+  <version>1.0-SNAPSHOT</version>
+  <organization>
+    <name>dwarveswork</name>
+    <url>https://github.com/dwarveswork</url>
+  </organization>
+  <developers>
+    <developer>
+      <name>WAN Peng</name>
+      <email>wanpeng@mail.com</email>
+    </developer>
+  </developers>
+
+  <modules>
+    <module>common-core</module>
+    <module>common-http</module>
+  </modules>
+
+
+</project>
