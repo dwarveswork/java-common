@@ -34,6 +34,7 @@
     <module>common-core</module>
     <module>common-http</module>
     <module>common-logging</module>
+    <module>common-algorithm</module>
   </modules>
 
 
