@@ -5,9 +5,7 @@
 
 package com.dwarveswork.exception;
 
-public class GenericException extends RuntimeException {
-
-  private static final long serialVersionUID = 2429662277054288998L;
+public abstract class GenericException extends RuntimeException {
 
   protected final ExceptionCode code;
 
@@ -16,17 +14,17 @@ public class GenericException extends RuntimeException {
   }
 
   public GenericException(ExceptionCode code, String message) {
-    super(code.getStatus() + ": " + message);
+    super(code.getStatus() + " - " + message);
     this.code = code;
   }
 
   public GenericException(ExceptionCode code, String message, Throwable cause) {
-    super(code.getStatus() + ": " + message, cause);
+    super(code.getStatus() + " - " + message, cause);
     this.code = code;
   }
 
   public GenericException(ExceptionCode code, Throwable cause) {
-    super(code.getStatus() + ": " + cause.getLocalizedMessage(), cause);
+    super(code.getStatus() + " - " + cause.getLocalizedMessage(), cause);
     this.code = code;
   }
 
