@@ -6,10 +6,16 @@
 package com.dwarveswork.lang;
 
 import java.nio.charset.StandardCharsets;
+import java.security.SecureRandom;
 import java.util.Locale;
 import java.util.Objects;
+import java.util.Random;
 
 public final class Strings {
+
+  public static final String ALPHABETIC = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  public static final String NUMERIC = "1234567890";
+  public static final String ALPHANUMERIC = ALPHABETIC + NUMERIC;
 
   private Strings() {}
 
@@ -49,5 +55,28 @@ public final class Strings {
       return string;
     }
     return string.substring(0, 1).toLowerCase(Locale.getDefault()) + string.substring(1);
+  }
+
+  public static String randomString(int length, final char[] chars, Random random) {
+    if (length <= 0) {
+      return "";
+    }
+    char[] buf = new char[length];
+    for (int i = 0; i < length; ++i) {
+      buf[i] = chars[random.nextInt(chars.length)];
+    }
+    return new String(buf);
+  }
+
+  public static String randomNumeric(int length) {
+    return randomString(length, NUMERIC.toCharArray(), new SecureRandom());
+  }
+
+  public static String randomAlphabetic(int length) {
+    return randomString(length, ALPHABETIC.toCharArray(), new SecureRandom());
+  }
+
+  public static String randomAlphanumeric(int length) {
+    return randomString(length, ALPHANUMERIC.toCharArray(), new SecureRandom());
   }
 }
