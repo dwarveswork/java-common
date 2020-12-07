@@ -19,6 +19,14 @@ public class HttpServiceFactory {
     return createProxy(type, new HttpServiceProxy(baseUri, httpExecutor));
   }
 
+  public static <T> T createProxy(Class<T> type, String baseUri, HttpResponseHandler responseHandler) {
+    return createProxy(type, new HttpServiceProxy(baseUri, responseHandler));
+  }
+
+  public static <T> T createProxy(Class<T> type, String baseUri, HttpResponseHandler responseHandler, HttpExecutor httpExecutor) {
+    return createProxy(type, new HttpServiceProxy(baseUri, responseHandler, httpExecutor));
+  }
+
   @SuppressWarnings("unchecked")
   public static <T> T createProxy(Class<T> type, HttpServiceProxy proxy) {
     return (T) Proxy.newProxyInstance(type.getClassLoader(), new Class[] { type }, proxy);
