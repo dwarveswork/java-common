@@ -103,7 +103,7 @@ public class HttpServiceProxy implements InvocationHandler {
     Map<String, List<AnnotatedArgument>> arguments = parseArguments(method, args);
     String uri = generateUri(annotation.value(), arguments);
     Map<String, String> headers = generateHeaders(annotation.headers(), arguments);
-    return invokeHttpRequest(uri, "GET", annotation.executeTimeoutMillis(), headers, Void.class, method.getReturnType(), null);
+    return invokeHttpRequest(uri, "GET", annotation.executeTimeoutMillis(), headers, Void.class, method.getGenericReturnType(), null);
   }
 
   private Object invokePostRequest(POST annotation, Method method, Object[] args) {
@@ -112,12 +112,12 @@ public class HttpServiceProxy implements InvocationHandler {
     Map<String, String> headers = generateHeaders(annotation.headers(), arguments);
     List<AnnotatedArgument> bodies = arguments.get(Body.class.getSimpleName());
     if (bodies.size() == 0) {
-      return invokeHttpRequest(uri, "POST", annotation.executeTimeoutMillis(), headers, Void.class, method.getReturnType(), null);
+      return invokeHttpRequest(uri, "POST", annotation.executeTimeoutMillis(), headers, Void.class, method.getGenericReturnType(), null);
     } else if (bodies.size() > 1) {
       LOGGER.warn("Http annotation of Body should be unique, but found {}", bodies.size());
     }
     AnnotatedArgument body = bodies.get(0);
-    return invokeHttpRequest(uri, "POST", annotation.executeTimeoutMillis(), headers, body.getArgumentType(), method.getReturnType(), body.getArgument());
+    return invokeHttpRequest(uri, "POST", annotation.executeTimeoutMillis(), headers, body.getArgumentType(), method.getGenericReturnType(), body.getArgument());
   }
 
   private Map<String, List<AnnotatedArgument>> parseArguments(Method method, Object[] args) {
@@ -169,6 +169,8 @@ public class HttpServiceProxy implements InvocationHandler {
     if (!queries.isEmpty()) {
       if (!uri.contains("?")) {
         uri = uri + "?";
+      } else {
+        uri = uri + "&";
       }
       uri = uri + queries.entrySet().stream().map(e -> e.getKey() + "=" + e.getValue()).collect(Collectors.joining("&"));
     }
