@@ -5,7 +5,7 @@
 
 package com.dwarveswork.http;
 
-import com.dwarveswork.exception.RemoteExecutionException;
+import com.dwarveswork.http.exception.HttpStatusException;
 
 public class DefaultHttpResponseHandler extends HttpResponseHandler {
 
@@ -14,6 +14,6 @@ public class DefaultHttpResponseHandler extends HttpResponseHandler {
     if (response.getStatusCode() >= 200 && response.getStatusCode() < 300) {
       return response.getBody();
     }
-    throw new RemoteExecutionException(response.getRequest().getUri(), "Status=" + response.getStatusCode());
+    throw new HttpStatusException(response.getRequest().getUri(), response.getStatusCode());
   }
 }
