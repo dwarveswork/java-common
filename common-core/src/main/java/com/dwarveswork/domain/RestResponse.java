@@ -15,24 +15,24 @@ public class RestResponse<T extends Serializable> implements Serializable {
   public static final int OK = 200;
 
   private final int status;
-  private final String error;
+  private final String message;
   private final T body;
 
-  public RestResponse(int status, String error) {
+  public RestResponse(int status, String message) {
     this.status = status;
-    this.error = error;
+    this.message = message;
     this.body = null;
   }
 
   public RestResponse(T body) {
     this.status = 200;
-    this.error = null;
+    this.message = null;
     this.body = body;
   }
 
   public RestResponse(GenericException ex) {
     this.status = ex.getStatus();
-    this.error = ex.getLocalizedMessage();
+    this.message = ex.getLocalizedMessage();
     this.body = null;
   }
 
@@ -40,8 +40,8 @@ public class RestResponse<T extends Serializable> implements Serializable {
     return status;
   }
 
-  public String getError() {
-    return error;
+  public String getMessage() {
+    return message;
   }
 
   public T getBody() {
@@ -52,7 +52,7 @@ public class RestResponse<T extends Serializable> implements Serializable {
   public String toString() {
     return "RestResponse{" +
         "status=" + status +
-        ", message='" + error + '\'' +
+        ", message='" + message + '\'' +
         ", body=" + body +
         '}';
   }
