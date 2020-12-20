@@ -18,8 +18,8 @@ public class DataPage<T extends Serializable> implements Serializable {
 
   private Integer pageIndex;
   private Integer pageSize;
-  private Integer pageCount;
-  private Integer totalCount;
+  private Long pageCount;
+  private Long totalCount;
   private List<T> data;
 
   public Integer getPageIndex() {
@@ -40,20 +40,20 @@ public class DataPage<T extends Serializable> implements Serializable {
     return this;
   }
 
-  public Integer getPageCount() {
+  public Long getPageCount() {
     return pageCount;
   }
 
-  public DataPage<T> setPageCount(Integer pageCount) {
+  public DataPage<T> setPageCount(Long pageCount) {
     this.pageCount = pageCount;
     return this;
   }
 
-  public Integer getTotalCount() {
+  public Long getTotalCount() {
     return totalCount;
   }
 
-  public DataPage<T> setTotalCount(Integer totalCount) {
+  public DataPage<T> setTotalCount(Long totalCount) {
     this.totalCount = totalCount;
     return this;
   }
@@ -76,7 +76,7 @@ public class DataPage<T extends Serializable> implements Serializable {
     return result;
   }
 
-  public static <T extends Serializable> DataPage<T> of(int pageIndex, int pageSize, int totalCount, List<T> data) {
+  public static <T extends Serializable> DataPage<T> of(int pageIndex, int pageSize, long totalCount, List<T> data) {
     DataPage<T> dataPage = new DataPage<>();
     dataPage.pageIndex = pageIndex <= 0 ? 1 : pageIndex;
     dataPage.pageSize = pageSize <= 0 ? 20 : pageSize;

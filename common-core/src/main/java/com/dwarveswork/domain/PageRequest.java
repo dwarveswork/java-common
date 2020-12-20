@@ -7,12 +7,15 @@ package com.dwarveswork.domain;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.validation.constraints.NotNull;
 
 public class PageRequest implements Serializable {
 
   private static final long serialVersionUID = 7216771532761413107L;
 
+  @NotNull
   private Integer pageIndex;
+  @NotNull
   private Integer pageSize;
   private List<Order> sort;
 
