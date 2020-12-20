@@ -35,6 +35,7 @@
     <module>common-http</module>
     <module>common-logging</module>
     <module>common-algorithm</module>
+    <module>common-security</module>
   </modules>
 
 
