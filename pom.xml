@@ -36,6 +36,7 @@
     <module>common-logging</module>
     <module>common-algorithm</module>
     <module>common-security</module>
+    <module>common-spring-jpa</module>
   </modules>
 
 
