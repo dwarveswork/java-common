@@ -1,9 +1,9 @@
 /*
  * SPDX-License-Identifier: MIT
- * Copyright (c) 2020 dwarveswork
+ * Copyright (c) 2021 dwarveswork
  */
 
-package com.dwarveswork.net;
+package com.dwarveswork.lang;
 
 import java.net.Inet4Address;
 import java.net.InetAddress;

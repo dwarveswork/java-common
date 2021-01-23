@@ -1,9 +1,9 @@
 /*
  * SPDX-License-Identifier: MIT
- * Copyright (c) 2020 dwarveswork
+ * Copyright (c) 2021 dwarveswork
  */
 
-package com.dwarveswork.domain;
+package com.dwarveswork.data;
 
 import java.io.Serializable;
 import java.util.ArrayList;

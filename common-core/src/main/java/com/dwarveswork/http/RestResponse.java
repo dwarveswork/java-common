@@ -3,7 +3,7 @@
  * Copyright (c) 2020 dwarveswork
  */
 
-package com.dwarveswork.domain;
+package com.dwarveswork.http;
 
 import com.dwarveswork.exception.GenericException;
 import java.io.Serializable;
