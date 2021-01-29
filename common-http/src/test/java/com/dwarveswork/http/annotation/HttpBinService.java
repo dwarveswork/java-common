@@ -9,7 +9,7 @@ public interface HttpBinService {
   @GET("404")
   void get404();
 
-  @GET(value = "delay/2", executeTimeoutMillis = 1000)
+  @GET(value = "delay/5", executeTimeoutMillis = 1000)
   void getTimeout();
 
   @GET(value = "digest-auth/${qop}/${user}/${password}")

@@ -19,7 +19,7 @@ class HttpExecutorTest {
   private static final String URL_PATCH = BASE_URL + "patch";
   private static final String URL_DELETE = BASE_URL + "delete";
   private static final String URL_404 = BASE_URL + "404";
-  private static final String URL_DELAY = BASE_URL + "delay/";
+  private static final String URL_DELAY = BASE_URL + "delay/5";
   private static final String TEST_HEADER = "X-Header";
 
   private HttpExecutor httpExecutor = new DefaultHttpExecutor();
