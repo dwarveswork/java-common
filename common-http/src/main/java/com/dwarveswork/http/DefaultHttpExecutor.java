@@ -22,6 +22,7 @@ import java.net.http.HttpRequest.BodyPublishers;
 import java.net.http.HttpResponse.BodyHandlers;
 import java.net.http.HttpResponse.BodySubscriber;
 import java.net.http.HttpResponse.ResponseInfo;
+import java.net.http.HttpTimeoutException;
 import java.time.Duration;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -80,7 +81,7 @@ public class DefaultHttpExecutor extends HttpExecutor {
       httpResponse.setVersion(response.version().name()).setUri(response.uri().toString()).setStatusCode(response.statusCode())
                   .setHeaders(response.headers().map()).setBody(parseBody(response.body(), request.getResponseType()));
       return httpResponse;
-    } catch (HttpConnectTimeoutException ex) {
+    } catch (HttpTimeoutException ex) {
       throw new RemoteTimeoutException(request.getUri(), ex);
     } catch (IOException | InterruptedException ex) {
       throw new RemoteExecutionException(request.getUri(), ex);
