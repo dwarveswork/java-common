@@ -74,11 +74,4 @@ class DefaultHttpExecutorTest {
     HttpResponse<String> response = httpExecutor.post(url, String.class);
     System.out.println(response);
   }
-
-  @Test
-  void testGet2() {
-    String url = "https://api.huobi.pro/market/depth?symbol=daiusdt&type=step0";
-    HttpResponse<String> response = httpExecutor.get(url, String.class);
-    System.out.println(response);
-  }
 }
