@@ -39,5 +39,25 @@
     <module>common-spring-jpa</module>
   </modules>
 
+  <repositories>
+    <repository>
+      <id>central</id>
+      <url>https://repo1.maven.org/maven2</url>
+      <releases><enabled>true</enabled></releases>
+      <snapshots><enabled>true</enabled></snapshots>
+    </repository>
+    <repository>
+      <id>dwarveswork-java-bom</id>
+      <name>dwarveswork java-bom packages</name>
+      <url>https://maven.pkg.github.com/dwarveswork/java-bom</url>
+    </repository>
+  </repositories>
 
+  <distributionManagement>
+    <repository>
+      <id>github</id>
+      <name>dwarveswork java-common packages</name>
+      <url>https://maven.pkg.github.com/dwarveswork/java-common</url>
+    </repository>
+  </distributionManagement>
 </project>
